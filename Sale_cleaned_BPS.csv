@@ -1,8 +1,4 @@
 SaleID,CustomerID,ProductID,SaleDate,Quantity,UnitPrice,TotalPrice,Discount,PaymentMethod,SalesChannel,Price
-102.0,1.0,1.0,3/25/2024,3,250,725,25,Bank Transfer,In-Store,250
-102.0,2.0,2.0,2/28/2024,2,450,855,45,Bank Transfer,Online,450
-102.0,101.47979797979798,101.47979797979798,5/18/2024,2,200,380,20,Cash,In-Store,200
-4.0,101.47979797979798,101.47979797979798,1/20/2024,1,300,270,30,Credit Card,Online,300
 5.0,5.0,5.0,3/2/2024,9,500,4450,50,Cash,Online,500
 6.0,6.0,6.0,4/23/2024,7,500,3450,50,Bank Transfer,In-Store,500
 7.0,7.0,7.0,4/25/2024,5,600,2940,60,Cash,In-Store,600

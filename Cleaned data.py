@@ -1,43 +1,31 @@
 import pandas as pd
 
-# Read the CSV file
-file_path = 'Sale_BPS.csv'  # Ensure the path is correct
+# Step 1: Read the CSV File
+file_path = 'Sale_BPS.csv'
 data = pd.read_csv(file_path)
 
-# Display the first few rows of data
-print("Original data:")
+# Display the first few rows of the original data
+print("Original Data:")
 print(data.head())
 
-# Check for missing values
-print("\nNumber of missing values in each column:")
+# Step 2: Check for Missing Data
+print("\nMissing Data Summary:")
 print(data.isnull().sum())
 
-# Handle missing data:
-# - Fill numeric columns with their mean values
-# - Fill string columns with a default value
+# Step 3: Remove Rows with Missing Data
+# Drop any rows that contain null values
+data_cleaned = data.dropna()
 
-# Handle missing data:
-# Find numeric columns
-numeric_cols = data.select_dtypes(include=['float64', 'int64']).columns
-# Fill numeric columns with mean values
-data[numeric_cols] = data[numeric_cols].fillna(data[numeric_cols].mean())
+# Check if missing data is handled
+print("\nMissing Data After Cleaning:")
+print(data_cleaned.isnull().sum())
 
-# Find string columns
-string_cols = data.select_dtypes(include=['object']).columns
-# Fill string columns with a default value
-data[string_cols] = data[string_cols].fillna('Unknown')
+# Display the first few rows of the cleaned data
+print("\nCleaned Data:")
+print(data_cleaned.head())
 
-# Check the data again
-print("\nData after processing:")
-print(data.head())
+# Step 4: Save the Cleaned Data to a New CSV File
+cleaned_file_path = 'Sale_cleaned_BPS.csv'
+data_cleaned.to_csv(cleaned_file_path, index=False)
 
-# Check the number of missing values again
-print("\nNumber of missing values after processing in each column:")
-print(data.isnull().sum())
-
-# Save the cleaned data to a new CSV file
-# Change this path to the desired location on your system
-output_file_path = 'Sale_BPS_Cleaned.csv'
-data.to_csv(output_file_path, index=False)
-
-print(f"\nData has been successfully saved to {output_file_path}")
+print(f"\nData has been cleaned and saved to '{cleaned_file_path}'")
